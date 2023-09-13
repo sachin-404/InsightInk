@@ -5,10 +5,20 @@ from . import models
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    context = {'blogs': models.BlogModel.objects.all()}
+    return render(request, 'home.html', context)
 
 def login_view(request):
     return render(request, 'login.html')
+
+def blog_detail(request, slug):
+    context = {}
+    try:
+        blog_obj = models.BlogModel.objects.filter(slug = slug).first()
+        context['blog_obj'] = blog_obj
+    except Exception as e:
+        print(e)
+    return render(request, 'blog_detail.html', context)
 
 def add_blog(request):
     context = {'form': form.BlogForm}
