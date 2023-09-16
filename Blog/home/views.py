@@ -54,5 +54,47 @@ def add_blog(request):
         
     return render(request, 'add_blog.html', context)
 
+def delete_blog(request, id):
+    try:
+        blog_obj = models.BlogModel.objects.get(id= id)
+        if blog_obj.user == request.user:
+            blog_obj.delete()
+    except Exception as e:
+        print(e)
+    return redirect('/see-blog')
+
+def update_blog(request, slug):
+    context = {}
+    try:
+        blog_obj = models.BlogModel.objects.get(slug = slug)
+        
+        if blog_obj.user != request.user:
+            return redirect('/')
+        
+        initial_dict = {'content': blog_obj.content}
+        blog_form = form.BlogForm(initial=initial_dict)
+        
+        if request.method == 'POST':
+            form_data = form.BlogForm(request.POST)
+            image = request.FILES['image']
+            title = request.POST.get('title')
+            user = request.user
+            
+            if form_data.is_valid():
+                content = form_data.cleaned_data['content']
+            
+            models.BlogModel.objects.create(
+                user=user,
+                title=title,
+                content=content,
+                image=image
+            )
+        
+        context['blog_obj'] = blog_obj
+        context['form'] = blog_form
+    except Exception as e:
+        print(e)
+    return render(request, 'update_blog.html', context)
+
 def signup_view(request):
     return render(request, 'signup.html')
