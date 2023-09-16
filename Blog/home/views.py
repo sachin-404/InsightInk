@@ -20,6 +20,15 @@ def blog_detail(request, slug):
         print(e)
     return render(request, 'blog_detail.html', context)
 
+def see_blog(request):
+    context = {}
+    try:
+        blog_objs = models.BlogModel.objects.filter(user = request.user)
+        context['blog_objs'] = blog_objs
+    except Exception as e:
+        print(e)
+    return render(request, 'see_blog.html', context)
+
 def add_blog(request):
     context = {'form': form.BlogForm}
     try:

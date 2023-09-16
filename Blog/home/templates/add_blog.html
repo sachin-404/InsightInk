@@ -3,7 +3,10 @@
 {% block content %}
 
 <div class="container">
-    <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+
+    <a href="{% url 'see_blog' %}" class="btn btn-warning mt-5">View Your Blogs</a>
+
+    <form method="post" class="pt-5 mb-5 pb-5" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-12">
