@@ -9,28 +9,21 @@
            
             <form class="form-validate">
               <div class="form-group">
-                <label class="form-label" for="loginUsername"> Email Address</label>
-                <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="Please enter your email">
+                <label class="form-label" for="loginUsername"> Username</label>
+                <input class="form-control" name="loginUsername" id="loginUsername" type="text" placeholder="Username" autocomplete="off" required data-msg="Please enter Username">
               </div>
               <div class="form-group mb-4">
                 <div class="row">
                   <div class="col">
                     <label class="form-label" for="loginPassword"> Password</label>
                   </div>
-                  <div class="col-auto"><a class="form-text small" href="#">Forgot password?</a></div>
                 </div>
                 <input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password" required data-msg="Please enter your password">
               </div>
-              <div class="form-group mb-4">
-                <div class="custom-control custom-checkbox">
-                  <input class="custom-control-input" id="loginRemember" type="checkbox">
-                  <label class="custom-control-label text-muted" for="loginRemember"> <span class="text-sm">Remember me for 30 days</span></label>
-                </div>
-              </div>
               <!-- Submit-->
-              <button class="btn btn-lg btn-block btn-primary">Sign in</button>
+              <button class="btn btn-lg btn-block btn-primary" onclick="register()">Register</button>
              
-              <p class="text-center"><small class="text-muted text-center">Don't have an account yet? <a href="signup.html">Sign Up                </a></small></p>
+              <p class="text-center"><small class="text-muted text-center">Already registered? <a href="{% url 'login_view' %}">Log in                </a></small></p>
             </form><a class="close-absolute mr-md-5 mr-xl-6 pt-5" href="index-2.html"> 
               <svg class="svg-icon w-3rem h-3rem">
                 <use xlink:href="#close-1"> </use>
