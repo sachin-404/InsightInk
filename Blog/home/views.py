@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 from . import form
 from . import models
 
@@ -10,6 +11,10 @@ def home(request):
 
 def login_view(request):
     return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 def blog_detail(request, slug):
     context = {}
