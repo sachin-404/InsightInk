@@ -21,7 +21,7 @@ InsightInk is a robust and user-friendly blogging platform, meticulously crafted
 - **Backend**: Django
 - **Frontend**: Bootstrap
 - **Database**: SQLite
-- **Text Editor**: Django-Floara
+- **Text Editor**: Django-Froala
 - **Containerization**: Docker
 - **Continuous Integration**: GitHub Actions
 
