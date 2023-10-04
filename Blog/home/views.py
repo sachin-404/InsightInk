@@ -6,7 +6,11 @@ from . import models
 # Create your views here.
 
 def home(request):
-    context = {'blogs': models.BlogModel.objects.all()}
+    context = {'blogs': models.BlogModel.objects.all(),
+               'latest': models.BlogModel.objects.first()}
+    # latest = {'latest': models.BlogModel.objects.first()}
+    # print(latest)
+    
     return render(request, 'home.html', context)
 
 def login_view(request):
