@@ -1,7 +1,7 @@
 asgiref==3.7.2
 click==8.1.7
 dj-database-url==2.1.0
-Django==4.2.5
+Django
 django-froala-editor==4.1.1
 djangorestframework==3.14.0
 gunicorn==21.2.0
